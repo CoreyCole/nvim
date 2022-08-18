@@ -8,7 +8,6 @@ return require('packer').startup(function()
     use 'jdhao/better-escape.vim'
     use 'Yggdroot/indentLine' --line for indents 
     use 'lukas-reineke/indent-blankline.nvim' --show indents
-    use 'jesseduffield/lazygit' --git window
     use 'easymotion/vim-easymotion' --cursor movement
     use 'norcalli/nvim-colorizer.lua' --hex color render
     use 'ellisonleao/gruvbox.nvim' --theme

@@ -6,7 +6,7 @@ nnoremap("<C-s>", "<cmd>w<cr>")
 nnoremap("<leader>d", "<plug>(easymotion-bd-f)")
 nnoremap("<leader>d", "<plug>(easymotion-overwin-f")
 nnoremap("<leader>gg", "<cmd>LazyGit<cr>")
-nnoremap("<leader>n", "<cmd>FloatermToggle<cr>")
+nnoremap("<leader>n", "<cmd>ToggleTerm<cr>")
 nnoremap("<leader>xx", "<cmd>TroubleToggle<cr>")
 nnoremap("<leader>zz", "<plug>(coc-diagnostic-info)")
 

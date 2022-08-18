@@ -114,10 +114,10 @@ _G.packer_plugins = {
     path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\kommentary",
     url = "https://github.com/b3nj5m1n/kommentary"
   },
-  lazygit = {
+  ["lazygit.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lazygit",
-    url = "https://github.com/jesseduffield/lazygit"
+    path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lazygit.nvim",
+    url = "https://github.com/kdheepak/lazygit.nvim"
   },
   ["lsp-colors.nvim"] = {
     loaded = true,
