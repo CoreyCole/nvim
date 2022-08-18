@@ -114,11 +114,6 @@ _G.packer_plugins = {
     path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\kommentary",
     url = "https://github.com/b3nj5m1n/kommentary"
   },
-  ["lazygit.nvim"] = {
-    loaded = true,
-    path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lazygit.nvim",
-    url = "https://github.com/kdheepak/lazygit.nvim"
-  },
   ["lsp-colors.nvim"] = {
     loaded = true,
     path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lsp-colors.nvim",
@@ -200,6 +195,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-smoothie",
     url = "https://github.com/psliwka/vim-smoothie"
+  },
+  ["vim-surround"] = {
+    loaded = true,
+    path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-surround",
+    url = "https://github.com/tpope/vim-surround"
   }
 }
 
