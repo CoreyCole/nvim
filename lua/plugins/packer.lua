@@ -3,6 +3,7 @@ return require('packer').startup(function()
   
     --vim ux
     use 'psliwka/vim-smoothie' --smooth scrolling
+    use 'junegunn/fzf'
     use 'junegunn/fzf.vim' --fuzzy find search
     use 'jdhao/better-escape.vim'
     use 'Yggdroot/indentLine' --line for indents 
@@ -10,7 +11,6 @@ return require('packer').startup(function()
     use 'jesseduffield/lazygit' --git window
     use 'easymotion/vim-easymotion' --cursor movement
     use 'norcalli/nvim-colorizer.lua' --hex color render
-    use 'voldikss/vim-floaterm' --floating terminal window
     use 'ellisonleao/gruvbox.nvim' --theme
     use 'folke/tokyonight.nvim' --theme
     use 'folke/lsp-colors.nvim'
@@ -48,4 +48,8 @@ return require('packer').startup(function()
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     }
+    use {"akinsho/toggleterm.nvim", tag = 'v2.*', config = function()
+        require("toggleterm").setup()
+    end}
 end)
+
