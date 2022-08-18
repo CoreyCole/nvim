@@ -1,11 +1,26 @@
 local nnoremap = require("keymap").nnoremap
 
+local Terminal  = require('toggleterm.terminal').Terminal
+local lazygit = Terminal:new({
+    cmd = "lazygit",
+    hidden = true,
+    close_on_exit = true,
+    direction = 'float',
+    float_ops = {
+        winblend = 3,
+    }
+})
+
+function _lazygit_toggle()
+  lazygit:toggle()
+end
+
 nnoremap("<leader>v", "<cmd>:NvimTreeFocus<cr>")
 nnoremap("<leader>b", "<cmd>:NvimTreeToggle<cr>")
 nnoremap("<C-s>", "<cmd>w<cr>")
 nnoremap("<leader>d", "<plug>(easymotion-bd-f)")
 nnoremap("<leader>d", "<plug>(easymotion-overwin-f")
-nnoremap("<leader>gg", "<cmd>LazyGit<cr>")
+nnoremap("<leader>g", _lazygit_toggle)
 nnoremap("<leader>n", "<cmd>ToggleTerm<cr>")
 nnoremap("<leader>xx", "<cmd>TroubleToggle<cr>")
 nnoremap("<leader>zz", "<plug>(coc-diagnostic-info)")
