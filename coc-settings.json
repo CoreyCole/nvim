@@ -1,11 +1,13 @@
 {
     "clangd.enabled": true,
-    "clangd.path": "C:/msys66/mingw64/bin/clang.exe",
-    "clangd.arguments": [
-        "--clang-tidy",
-        "--compile-commands-dir='C:/Users/stapl/workspace/omnicom-c'",
-    ],
+    "clangd.path": "C:/msys64/mingw64/bin/clangd.exe",
     "clangd.inlayHints.enable": true,
+    "clangd.arguments": [
+        "--log=verbose",
+        "--compile-commands-dir=C:/Users/stapl/workspace/omnicom-c",
+        "--query-driver=C:/msys66/mingw64/bin/**/*,C:/msys64/mingw64/lib/**/*"
+    ],
+    "diagnostic.displayByAle": true,
     "cSpell.words": [
         "appsink",
         "APPSRC",

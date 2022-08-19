@@ -1,3 +1,8 @@
+" ALE works together with coc
+" https://github.com/dense-analysis/ale#5xvii-how-can-i-configure-my-c-or-c-project
+let g:ale_disable_lsp = 1
+let g:ale_c_parse_makefile = 1
+let g:ale_linters = {'c': ['cppcheck', 'gcc'] }
 lua require('init')
 " Some servers have issues with backup files, see #649.
 set nobackup
