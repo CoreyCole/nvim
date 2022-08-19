@@ -191,6 +191,16 @@ _G.packer_plugins = {
     path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-easymotion",
     url = "https://github.com/easymotion/vim-easymotion"
   },
+  ["vim-polyglot"] = {
+    loaded = true,
+    path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-polyglot",
+    url = "https://github.com/sheerun/vim-polyglot"
+  },
+  ["vim-rooter"] = {
+    loaded = true,
+    path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-rooter",
+    url = "https://github.com/airblade/vim-rooter"
+  },
   ["vim-smoothie"] = {
     loaded = true,
     path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-smoothie",

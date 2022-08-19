@@ -1,10 +1,13 @@
 return require("packer").startup(function()
-    use "wbthomason/packer.nvim" --packer can manage itself
-  
+    use "wbthomason/packer.nvim" --packer can manage itself 
     --vim ux
     use "psliwka/vim-smoothie" --smooth scrolling
+    -- use {"junegunn/fzf", config = function()
+        -- fzf_install()
+    -- end}
     use "junegunn/fzf"
     use "junegunn/fzf.vim" --fuzzy find search
+    use "airblade/vim-rooter" --changes working directory
     use "jdhao/better-escape.vim"
     use "Yggdroot/indentLine" --line for indents 
     use "lukas-reineke/indent-blankline.nvim" --show indents
@@ -14,6 +17,7 @@ return require("packer").startup(function()
     use "folke/tokyonight.nvim" --theme
     use "folke/lsp-colors.nvim"
     use "tpope/vim-surround" --change surrounding parens, brackets, quotes, etc.
+    use "sheerun/vim-polyglot" --languages that dont slow startup€ý,€ý,
 
     --rust
     use "rust-lang/rust.vim" --rust support
@@ -24,6 +28,7 @@ return require("packer").startup(function()
     use "kkoomen/vim-doge" --doc comments
  
     --vscode like
+    --wfxr/minimap.vim
     use "neovim/nvim-lspconfig" -- Configurations for Nvim LSP
     use "neoclide/coc.nvim" --vscode like suggestions/autocomplete/autoimport
     use "kyazdani42/nvim-tree.lua" --file tree window
