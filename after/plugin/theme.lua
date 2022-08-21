@@ -7,24 +7,24 @@ require("bufferline").setup{}
 require("lualine").setup()
 require("nvim-tree").setup({
     sort_by = "case",
-        view = {
-            side = "right",
-            adaptive_size = true,
-            mappings = {
-                list = {
-                    { key = "u", action = "dir_up" },
-                },
+    follow = false,
+    view = {
+        side = "right",
+        adaptive_size = true,
+        mappings = {
+            list = {
+                { key = "u", action = "dir_up" },
             },
         },
-        renderer = {
-            group_empty = true,
-        },
-        filters = {
-            dotfiles = false,
-            custom = { "^.git$" },
-        },
-    }
-)
+    },
+    renderer = {
+        group_empty = true,
+    },
+    filters = {
+        dotfiles = false,
+        custom = { "^.git$" },
+    },
+})
 require("trouble").setup{}
 require("toggleterm").setup{
     shell = "pwsh"
