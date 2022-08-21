@@ -26,6 +26,14 @@ local cargo_check_term = Terminal:new({
         winblend = 3,
     }
 })
+local cargo_test_term = Terminal:new({
+    cmd = "cargo test",
+    close_on_exit = false,
+    direction = 'float',
+    float_ops = {
+        winblend = 3,
+    }
+})
 
 function _lazygit_toggle()
     lazygit:toggle()
@@ -35,6 +43,9 @@ function _cargo_run_toggle()
 end
 function _cargo_check_toggle()
     cargo_check_term:toggle()
+end
+function _cargo_test_toggle()
+    cargo_test_term:toggle()
 end
 
 nnoremap("<leader>v", "<cmd>:NvimTreeFocus<cr>")
