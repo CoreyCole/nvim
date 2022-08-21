@@ -1,9 +1,18 @@
 " ALE works together with coc
 " https://github.com/dense-analysis/ale#5xvii-how-can-i-configure-my-c-or-c-project
-let g:ale_disable_lsp = 1
-let g:ale_c_parse_makefile = 1
-let g:ale_linters = {'c': ['cppcheck', 'gcc'] }
 lua require('init')
+
+" ale
+" https://github.com/dense-analysis/ale#usage-linting
+" https://github.com/dense-analysis/ale#5iii-how-can-i-use-ale-and-cocnvim-together
+let g:ale_disable_lsp = 0
+" let g:ale_c_parse_makefile = 0
+let g:ale_linters = {'c': ['gcc', 'cppcheck'] }
+
+" ==========
+" coc.nvim
+" ==========
+
 " Some servers have issues with backup files, see #649.
 set nobackup
 set nowritebackup

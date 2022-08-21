@@ -10,9 +10,31 @@ local lazygit = Terminal:new({
         winblend = 3,
     }
 })
+local cargo_run_term = Terminal:new({
+    cmd = "cargo run",
+    close_on_exit = true,
+    direction = 'float',
+    float_ops = {
+        winblend = 3,
+    }
+})
+local cargo_check_term = Terminal:new({
+    cmd = "cargo check",
+    close_on_exit = false,
+    direction = 'float',
+    float_ops = {
+        winblend = 3,
+    }
+})
 
 function _lazygit_toggle()
-  lazygit:toggle()
+    lazygit:toggle()
+end
+function _cargo_run_toggle()
+    cargo_run_term:toggle()
+end
+function _cargo_check_toggle()
+    cargo_check_term:toggle()
 end
 
 nnoremap("<leader>v", "<cmd>:NvimTreeFocus<cr>")
@@ -21,6 +43,8 @@ nnoremap("<C-s>", "<cmd>w<cr>")
 nnoremap("<leader>d", "<plug>(easymotion-bd-f)")
 nnoremap("<leader>d", "<plug>(easymotion-overwin-f")
 nnoremap("<leader>g", _lazygit_toggle)
+nnoremap("<leader>gr", _cargo_run_toggle)
+nnoremap("<leader>gc", _cargo_check_toggle)
 nnoremap("<leader>n", "<cmd>ToggleTerm<cr>")
 nnoremap("<leader>xx", "<cmd>TroubleToggle<cr>")
 nnoremap("<leader>zz", "<plug>(coc-diagnostic-info)")

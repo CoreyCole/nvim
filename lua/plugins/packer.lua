@@ -31,7 +31,7 @@ return require("packer").startup(function()
     --wfxr/minimap.vim
     use "neovim/nvim-lspconfig" -- Configurations for Nvim LSP
     use "neoclide/coc.nvim" --vscode like suggestions/autocomplete/autoimport
-    use "dense-analysis/ale"
+    -- use "dense-analysis/ale" --linting, formatting, etc.
     use "kyazdani42/nvim-tree.lua" --file tree window
     use "nvim-lualine/lualine.nvim" --status line
     use {

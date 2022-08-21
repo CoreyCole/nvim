@@ -1,12 +1,16 @@
 {
-    "clangd.enabled": true,
-    "clangd.path": "C:/msys64/mingw64/bin/clangd.exe",
-    "clangd.inlayHints.enable": true,
-    "clangd.arguments": [
-        "--log=verbose",
-        "--compile-commands-dir=C:/Users/stapl/workspace/omnicom-c",
-        "--query-driver=C:/msys66/mingw64/bin/**/*,C:/msys64/mingw64/lib/**/*"
-    ],
+    "languageserver": {
+        "ccls": {
+            "command": "ccls",
+            "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"],
+            "rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"],
+            "initializationOptions": {
+                "cache": {
+                    "directory": "C:/Users/stapl/tmp/ccls"
+                }
+            }
+        }
+    },
     "diagnostic.displayByAle": true,
     "cSpell.words": [
         "appsink",
@@ -18,6 +22,7 @@
         "audioresample",
         "audiotestsrc",
         "autoaudiosink",
+        "clangd",
         "DDEBUG",
         "decodebin",
         "DNDEBUG",
@@ -37,6 +42,7 @@
         "guint",
         "HIFI",
         "KBPS",
+        "msys",
         "MSECOND",
         "MSECONDS",
         "netclock",
@@ -52,6 +58,7 @@
         "rtpbin",
         "rtpopuspay",
         "Runtimes",
+        "stapl",
         "strsplit",
         "strstrip",
         "tslog",
