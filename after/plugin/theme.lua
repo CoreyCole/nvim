@@ -7,7 +7,6 @@ require("bufferline").setup{}
 require("lualine").setup()
 require("nvim-tree").setup({
     sort_by = "case",
-    follow = false,
     view = {
         side = "right",
         adaptive_size = true,
