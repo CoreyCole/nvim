@@ -265,5 +265,9 @@ lspconfig.ccls.setup({
         };
     }
 })
-
+local util = require("lspconfig.util")
+lspconfig.clangd.setup({
+    cmd = {"clangd"},
+    root_dir = util.root_pattern("compile_commands.json", ".git"),
+})
 
