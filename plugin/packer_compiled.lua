@@ -69,6 +69,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ale = {
+    loaded = true,
+    path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\ale",
+    url = "https://github.com/dense-analysis/ale"
+  },
   ["better-escape.vim"] = {
     loaded = true,
     path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\better-escape.vim",
@@ -79,10 +84,35 @@ _G.packer_plugins = {
     path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
   },
-  ["coc.nvim"] = {
+  ["cmp-buffer"] = {
     loaded = true,
-    path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\coc.nvim",
-    url = "https://github.com/neoclide/coc.nvim"
+    path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-buffer",
+    url = "https://github.com/hrsh7th/cmp-buffer"
+  },
+  ["cmp-nvim-lsp"] = {
+    loaded = true,
+    path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-nvim-lsp",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+  },
+  ["cmp-nvim-lsp-signature-help"] = {
+    loaded = true,
+    path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-nvim-lsp-signature-help",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp-signature-help"
+  },
+  ["cmp-nvim-lua"] = {
+    loaded = true,
+    path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-nvim-lua",
+    url = "https://github.com/hrsh7th/cmp-nvim-lua"
+  },
+  ["cmp-path"] = {
+    loaded = true,
+    path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-path",
+    url = "https://github.com/hrsh7th/cmp-path"
+  },
+  ["cmp-vsnip"] = {
+    loaded = true,
+    path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-vsnip",
+    url = "https://github.com/hrsh7th/cmp-vsnip"
   },
   fzf = {
     loaded = true,
@@ -104,11 +134,6 @@ _G.packer_plugins = {
     path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
-  indentLine = {
-    loaded = true,
-    path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\indentLine",
-    url = "https://github.com/Yggdroot/indentLine"
-  },
   kommentary = {
     loaded = true,
     path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\kommentary",
@@ -124,10 +149,25 @@ _G.packer_plugins = {
     path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["mason-lspconfig.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\mason-lspconfig.nvim",
+    url = "https://github.com/williamboman/mason-lspconfig.nvim"
+  },
+  ["mason.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\mason.nvim",
+    url = "https://github.com/williamboman/mason.nvim"
+  },
   nerdcommenter = {
     loaded = true,
     path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nerdcommenter",
     url = "https://github.com/preservim/nerdcommenter"
+  },
+  ["nvim-cmp"] = {
+    loaded = true,
+    path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-cmp",
+    url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-colorizer.lua"] = {
     loaded = true,
@@ -159,10 +199,10 @@ _G.packer_plugins = {
     path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
-  ["rust.vim"] = {
+  ["rust-tools.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\rust.vim",
-    url = "https://github.com/rust-lang/rust.vim"
+    path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\rust-tools.nvim",
+    url = "https://github.com/simrat39/rust-tools.nvim"
   },
   ["toggleterm.nvim"] = {
     config = { "\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0" },
@@ -191,11 +231,6 @@ _G.packer_plugins = {
     path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-easymotion",
     url = "https://github.com/easymotion/vim-easymotion"
   },
-  ["vim-polyglot"] = {
-    loaded = true,
-    path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-polyglot",
-    url = "https://github.com/sheerun/vim-polyglot"
-  },
   ["vim-rooter"] = {
     loaded = true,
     path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-rooter",
@@ -210,6 +245,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-surround",
     url = "https://github.com/tpope/vim-surround"
+  },
+  ["vim-vsnip"] = {
+    loaded = true,
+    path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-vsnip",
+    url = "https://github.com/hrsh7th/vim-vsnip"
+  },
+  ["vscode.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\stapl\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vscode.nvim",
+    url = "https://github.com/Mofiqul/vscode.nvim"
   }
 }
 

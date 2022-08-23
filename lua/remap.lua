@@ -12,7 +12,7 @@ local lazygit = Terminal:new({
 })
 local cargo_run_term = Terminal:new({
     cmd = "cargo run",
-    close_on_exit = true,
+    close_on_exit = false,
     direction = 'float',
     float_ops = {
         winblend = 3,
@@ -59,8 +59,8 @@ nnoremap("<leader>gc", _cargo_check_toggle)
 nnoremap("<leader>gt", _cargo_test_toggle)
 nnoremap("<leader>n", "<cmd>ToggleTerm<cr>")
 nnoremap("<leader>xx", "<cmd>TroubleToggle<cr>")
-nnoremap("<leader>zz", "<plug>(coc-diagnostic-info)")
-nnoremap("<leader>h", "<cmd>:CocCommand clangd.switchSourceHeader<cr>")
+-- nnoremap("<leader>zz", "<plug>(coc-diagnostic-info)")
+-- nnoremap("<leader>h", "<cmd>:CocCommand clangd.switchSourceHeader<cr>")
 nnoremap("<C-LeftMouse>", function()
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<esc>", true, false, true), 'x', true)
     vim.fn.feedkeys("gd")
