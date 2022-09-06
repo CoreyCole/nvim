@@ -7,6 +7,7 @@ set nowritebackup  " backup file issues
 set updatetime=300 " better ux, less delays
 set signcolumn=yes " dont shift text with diagnostics
 set mouse+=a       " mouse support for drag-resize windows
+set fileformats=unix,dos
 
 " ---------------------
 "  Chris at machine
@@ -62,14 +63,16 @@ command! -bang -nargs=* Rg
   \   'rg --column --line-number --no-heading --color=always --smart-case --glob "!.git/*" --glob "!arun-cerbero" --glob "!arun-gst-plugins-bad" '.shellescape(<q-args>), 1,
   \   fzf#vim#with_preview(), <bang>0)
 
-" " Ripgrep advanced
-" function! RipgrepFzf(query, fullscreen)
-"   let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
-"   let initial_command = printf(command_fmt, shellescape(a:query))
-"   let reload_command = printf(command_fmt, '{q}')
-"   let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-"   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
-" endfunction
+" Ripgrep advanced
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 
 " command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 

@@ -1,7 +1,6 @@
 require("bufferline").setup({
     options = {
         buffer_close_icon = "",
-        close_command = "Bdelete %d",
         close_icon = "",
         -- indicator_icon = " ",
         left_trunc_marker = "",
@@ -77,7 +76,7 @@ require("nvim-tree").setup({
         group_empty = true,
     },
     filters = {
-        dotfiles = false,
+        dotfiles = true,
         custom = { "^.git$" },
     },
 })
@@ -137,10 +136,7 @@ vim.diagnostic.config({
     },
 })
 
-vim.cmd([[
-set signcolumn=yes
-autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
-]])
+
 
 -- Completion Plugin Setup
 local cmp = require("cmp")
@@ -161,9 +157,9 @@ cmp.setup({
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-e>"] = cmp.mapping.close(),
-        ["<CR>"] = cmp.mapping.confirm({
+        ["<C-y>"] = cmp.mapping.confirm({
             behavior = cmp.ConfirmBehavior.Insert,
-            select = true,
+            select = false,
         })
     },
     -- Installed sources:
@@ -253,21 +249,43 @@ require("vscode").setup({
     }
 })
 
-local lspconfig = require("lspconfig")
-lspconfig.ccls.setup({
+require('lspconfig').tsserver.setup {
+    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+}
+require('lspconfig').clangd.setup {
+    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+}
+require('lspconfig').rust_analyzer.setup {
+    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+}
+
+-- local lspconfig = require("lspconfig")
+--[[ lspconfig.ccls.setup({
     init_options = {
         compilationDatabaseDirectory = "C:/Users/stapl/workspace/omnicom-c";
         index = {
             threads = 8;
         };
         clang = {
-            excludeArgs = { "-frounding-math"} ;
+            excludeArgs = { "-target" } ;
+            extraArgs = { "--gcc-toolchain='C:/msys64/mingw64/lib'" };
         };
     }
-})
-local util = require("lspconfig.util")
+}) ]]
+-- lspconfig.clangd.setup({})
+--[[ local util = require("lspconfig.util")
 lspconfig.clangd.setup({
-    cmd = {"clangd"},
+    cmd = {
+        "clangd",
+        "--background-index",
+        "--query-driver='C:/msys64/mingw64/bin,C:/msys64/mingw64/lib,C:/Users/stapl/workspace/gstreamer-1.20.2/1.0/mingw_x86_64/lib,C:/Users/stapl/workspace/omnicom-c/ext/orc-0.4/lib'"
+    },
+    
     root_dir = util.root_pattern("compile_commands.json", ".git"),
-})
+}) ]]
+
+vim.cmd([[
+set signcolumn=yes
+autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
+]])
 

@@ -18,7 +18,7 @@ return require("packer").startup(function()
     use "Mofiqul/vscode.nvim" --theme
     use "folke/lsp-colors.nvim"
     use "tpope/vim-surround" --change surrounding parens, brackets, quotes, etc.
-    -- use "sheerun/vim-polyglot" --languages that dont slow startup€ý,€ý,
+    -- use "sheerun/vim-polyglot" --languages that dont slow startup
 
     --rust
     -- use "rust-lang/rust.vim" --rust support
@@ -49,7 +49,7 @@ return require("packer").startup(function()
     use "williamboman/mason-lspconfig.nvim"
     use 'simrat39/rust-tools.nvim'
     -- use "neoclide/coc.nvim" --vscode like suggestions/autocomplete/autoimport
-    use "dense-analysis/ale" --linting, formatting, etc.
+    -- use "dense-analysis/ale" --linting, formatting, etc.
     use "kyazdani42/nvim-tree.lua" --file tree window
     use "nvim-lualine/lualine.nvim" --status line
     use {
