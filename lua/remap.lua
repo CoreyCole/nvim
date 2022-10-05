@@ -62,6 +62,7 @@ function _toggle_types()
     end
 end
 
+nnoremap("<leader>a", "<cmd>:BufferLinePick<cr>")
 nnoremap("<leader>v", "<cmd>:NvimTreeFocus<cr>")
 nnoremap("<leader>b", "<cmd>:NvimTreeToggle<cr>")
 nnoremap("<C-s>", "<cmd>w<cr>")
