@@ -1,13 +1,15 @@
 " ALE works together with coc
 " https://github.com/dense-analysis/ale#5xvii-how-can-i-configure-my-c-or-c-project
 lua require('init')
-
 set nobackup
+set formatoptions-=ro
+set noswapfile
 set nowritebackup  " backup file issues
 set updatetime=300 " better ux, less delays
 set signcolumn=yes " dont shift text with diagnostics
 set mouse+=a       " mouse support for drag-resize windows
 set fileformats=unix,dos
+let g:rustfmt_autosave = 1
 
 " ---------------------
 "  Chris at machine
@@ -60,7 +62,7 @@ command! -bang -nargs=? -complete=dir Files
 " " Get text in files with Rg
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case --glob "!.git/*" --glob "!arun-cerbero" --glob "!arun-gst-plugins-bad" '.shellescape(<q-args>), 1,
+  \   'rg --column --line-number --no-heading --color=always --smart-case --glob "!.git/*" --glob "!ext" --glob "!arun-cerbero" --glob "!arun-gst-plugins-bad" '.shellescape(<q-args>), 1,
   \   fzf#vim#with_preview(), <bang>0)
 
 " Ripgrep advanced

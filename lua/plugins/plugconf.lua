@@ -79,6 +79,12 @@ require("nvim-tree").setup({
         dotfiles = true,
         custom = { "^.git$" },
     },
+    update_focused_file = true,
+    update_focused_file = {
+        enable      = true,
+        update_cwd  = false,
+        ignore_list = {}
+    }
 })
 require("trouble").setup{}
 require("toggleterm").setup{
@@ -87,11 +93,104 @@ require("toggleterm").setup{
 
 require("mason").setup()
 require("mason-lspconfig").setup()
-
+-- require("illuminate")
+require('illuminate').configure({
+    -- providers: provider used to get references in the buffer, ordered by priority
+    providers = {
+        'lsp',
+        'treesitter',
+        'regex',
+    },
+    -- delay: delay in milliseconds
+    delay = 100,
+    -- filetype_overrides: filetype specific overrides.
+    -- The keys are strings to represent the filetype while the values are tables that
+    -- supports the same keys passed to .configure except for filetypes_denylist and filetypes_allowlist
+    filetype_overrides = {},
+    -- filetypes_denylist: filetypes to not illuminate, this overrides filetypes_allowlist
+    filetypes_denylist = {
+        'dirvish',
+        'fugitive',
+    },
+    -- filetypes_allowlist: filetypes to illuminate, this is overriden by filetypes_denylist
+    filetypes_allowlist = {},
+    -- modes_denylist: modes to not illuminate, this overrides modes_allowlist
+    modes_denylist = {},
+    -- modes_allowlist: modes to illuminate, this is overriden by modes_denylist
+    modes_allowlist = {},
+    -- providers_regex_syntax_denylist: syntax to not illuminate, this overrides providers_regex_syntax_allowlist
+    -- Only applies to the 'regex' provider
+    -- Use :echom synIDattr(synIDtrans(synID(line('.'), col('.'), 1)), 'name')
+    providers_regex_syntax_denylist = {},
+    -- providers_regex_syntax_allowlist: syntax to illuminate, this is overriden by providers_regex_syntax_denylist
+    -- Only applies to the 'regex' provider
+    -- Use :echom synIDattr(synIDtrans(synID(line('.'), col('.'), 1)), 'name')
+    providers_regex_syntax_allowlist = {},
+    -- under_cursor: whether or not to illuminate under the cursor
+    under_cursor = true,
+    -- large_file_cutoff: number of lines at which to use large_file_config
+    -- The `under_cursor` option is disabled when this cutoff is hit
+    large_file_cutoff = nil,
+    -- large_file_config: config to use for large files (based on large_file_cutoff).
+    -- Supports the same keys passed to .configure
+    -- If nil, vim-illuminate will be disabled for large files.
+    large_file_overrides = nil,
+})
 local rt = {
+    tools = {
+        -- automatically call RustReloadWorkspace when writing to a Cargo.toml file.
+        reload_workspace_from_cargo_toml = true,
+        crate_graph = {
+            full = false,
+            backend = "png",
+            output = "./crate-graph.png",
+        },
+        inlay_hints = {
+            auto = true,
+            -- wheter to show parameter hints with the inlay hints or not
+            -- default: true
+            show_parameter_hints = true,
+            -- prefix for parameter hints
+            -- default: "<-"
+            parameter_hints_prefix = ":",
+            -- prefix for all the other hints (type, chaining)
+            -- default: "=>"
+            other_hints_prefix = "→ ",
+            -- whether to align to the lenght of the longest line in the file
+            max_len_align = false,
+            -- padding from the left if max_len_align is true
+            max_len_align_padding = 1,
+            -- whether to align to the extreme right or not
+            right_align = false,
+            -- padding from the right if right_align is true
+            right_align_padding = 7,
+            -- The color of the hints
+            highlight = "#FAFAFA",
+        },
+        -- options same as lsp hover / vim.lsp.util.open_floating_preview()
+        hover_actions = {
+
+            -- the border that is used for the hover window
+            -- see vim.api.nvim_open_win()
+            border = {
+                { "╭", "FloatBorder" },
+                { "─", "FloatBorder" },
+                { "╮", "FloatBorder" },
+                { "│", "FloatBorder" },
+                { "╯", "FloatBorder" },
+                { "─", "FloatBorder" },
+                { "╰", "FloatBorder" },
+                { "│", "FloatBorder" },
+            },
+
+            -- whether the hover action window gets automatically focused
+            -- default: false
+            auto_focus = false,
+        },
+    },
     server = {
         settings = {
-            on_attach = function(_, bufnr)
+            on_attach = function(client)
                 -- Hover actions
                 vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
                 -- Code action groups
@@ -99,9 +198,29 @@ local rt = {
                 require "illuminate".on_attach(client)
             end,
             ["rust-analyzer"] = {
+                assist = {
+                    importPrefix = "by_self",
+                },
+                cargo = {
+                    allFeatures = true,
+                },
                 checkOnSave = {
                     command = "cargo clippy"
-                }, 
+                },
+                lens = {
+                    references = true,
+                    methodReferences = true,
+                },
+                --[[ hoverActions = {
+                    references = true,
+                },
+                inlayHints = {
+                    chainingHints = true,
+                    maxLength = 40,
+                    parameterHints = true,
+                    typeHints = true,
+                    highlight = "#FAFAFA",
+                }, ]]
             },
         }
     },
@@ -170,7 +289,8 @@ cmp.setup({
         { name = "nvim_lua", keyword_length = 2},       -- complete neovim"s Lua runtime API such vim.lsp.*
         { name = "buffer", keyword_length = 2 },        -- source current buffer
         { name = "vsnip", keyword_length = 2 },         -- nvim-cmp source for vim-vsnip 
-        { name = "calc"},                               -- source for math calculation
+        { name = "calc" },                              -- source for math calculation
+        { name = "spell" },                             -- spell check
     },
     window = {
         completion = cmp.config.window.bordered(),

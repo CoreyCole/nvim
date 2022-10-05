@@ -18,8 +18,11 @@ vim.scrolloff = 10
 vim.conceallevel = 0
 vim.g.vim_json_conceal = 0
 vim.g.markdown_syntax_conceal = 0
-
 vim.opt.termguicolors = true
+
+-- spell suggestions
+vim.opt.spell = true
+vim.opt.spelllang = { 'en_us' }
 
 --Set completeopt to have a better completion experience
 -- :help completeopt

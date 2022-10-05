@@ -20,8 +20,11 @@ return require("packer").startup(function()
     use "tpope/vim-surround" --change surrounding parens, brackets, quotes, etc.
     -- use "sheerun/vim-polyglot" --languages that dont slow startup
 
+    -- highlights
+    use "RRethy/vim-illuminate"
+
     --rust
-    -- use "rust-lang/rust.vim" --rust support
+    use "rust-lang/rust.vim" --rust support
 
     --comments
     use "b3nj5m1n/kommentary" --comments
@@ -40,6 +43,7 @@ return require("packer").startup(function()
     use 'hrsh7th/cmp-vsnip'                             
     use 'hrsh7th/cmp-path'                              
     use 'hrsh7th/cmp-buffer'                            
+    use 'f3fora/cmp-spell'
     use 'hrsh7th/vim-vsnip'
 
     --vscode like

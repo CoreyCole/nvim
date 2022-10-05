@@ -47,6 +47,20 @@ end
 function _cargo_test_toggle()
     cargo_test_term:toggle()
 end
+local toggled_types = false;
+function _toggle_types()
+    if(toggled_types)
+    then
+        toggled_types = false
+        require('rust-tools').inlay_hints.disable() 
+    else
+        toggled_types = true
+        require('rust-tools').inlay_hints.enable()
+        vim.cmd("hi def IlluminatedWordText gui=underline")
+        vim.cmd("hi def IlluminatedWordRead gui=underline")
+        vim.cmd("hi def IlluminatedWordWrite gui=underline")
+    end
+end
 
 nnoremap("<leader>v", "<cmd>:NvimTreeFocus<cr>")
 nnoremap("<leader>b", "<cmd>:NvimTreeToggle<cr>")
@@ -60,6 +74,7 @@ nnoremap("<leader>gc", _cargo_check_toggle)
 nnoremap("<leader>gt", _cargo_test_toggle)
 nnoremap("<leader>n", "<cmd>ToggleTerm<cr>")
 nnoremap("<leader>xx", "<cmd>TroubleToggle<cr>")
+nnoremap("<leader>t", _toggle_types)
 -- nnoremap("<leader>zz", "<plug>(coc-diagnostic-info)")
 -- nnoremap("<leader>h", "<cmd>:CocCommand clangd.switchSourceHeader<cr>")
 nnoremap("<leader>gd", function()
